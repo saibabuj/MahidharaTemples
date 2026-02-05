@@ -47,7 +47,7 @@ To backup or use your data elsewhere, open the browser console (F12 → Console)
 console.log(JSON.stringify(JSON.parse(localStorage.getItem('templeTrustDB')), null, 2));
 ```
 
-Copy the output and save it as a `.json` file
+Copy the output and save it as a `.json` file.
 
 ---
 
