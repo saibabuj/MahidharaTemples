@@ -1,0 +1,16 @@
+[
+  {
+    "id": "e1",
+    "date": "2025-01-18",
+    "category": "Construction",
+    "amount": 15000,
+    "description": "Cement and sand for foundation"
+  },
+  {
+    "id": "e2",
+    "date": "2025-01-22",
+    "category": "Pooja Materials",
+    "amount": 2500,
+    "description": "Flowers and incense"
+  }
+]

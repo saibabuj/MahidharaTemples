@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c1",
+    "title": "Main Gopuram Foundation",
+    "date": "2025-01-10",
+    "temple": "Sri Mahidhara Temple",
+    "status": "In Progress",
+    "progress": 35,
+    "details": "Foundation work completed. Pillars being erected."
+  },
+  {
+    "id": "c2",
+    "title": "Compound Wall",
+    "date": "2025-01-25",
+    "temple": "Sri Mahidhara Temple",
+    "status": "Completed",
+    "progress": 100,
+    "details": "North and east compound walls completed."
+  }
+]

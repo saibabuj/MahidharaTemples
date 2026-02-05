@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahidhara Temple Trust - Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="logo.jpeg" alt="Mahidhara Luxuria Temples" class="banner-logo">
+        <div class="logo-text">
+          <h1>Mahidhara Luxuria</h1>
+          <p class="tagline">Satyameva Jayate</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+        <button class="nav-btn" data-section="donors">Donors</button>
+        <button class="nav-btn" data-section="payments">Payments</button>
+        <button class="nav-btn" data-section="expenses">Expenses</button>
+        <button class="nav-btn" data-section="temples">Temples</button>
+        <button class="nav-btn" data-section="construction">Construction</button>
+        <button class="btn btn-primary" id="login-nav-btn" style="margin-left: 1rem;">Admin Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Dashboard -->
+    <section id="dashboard" class="section active">
+      <div class="dashboard-stats-row">
+        <div class="hero-balance-card">
+          <p class="stat-label">Available Balance</p>
+          <p class="stat-value" id="balance">₹0</p>
+        </div>
+        <div class="glass-card donors">
+          <span class="stat-icon">👥</span>
+          <div>
+            <p class="stat-label">Donors</p>
+            <p class="stat-value" id="donors-count">0</p>
+          </div>
+        </div>
+        <div class="glass-card income">
+          <span class="stat-icon">📈</span>
+          <div>
+            <p class="stat-label">Received</p>
+            <p class="stat-value" id="total-received">₹0</p>
+          </div>
+        </div>
+        <div class="glass-card expense">
+          <span class="stat-icon">📉</span>
+          <div>
+            <p class="stat-label">Expenses</p>
+            <p class="stat-value" id="total-expenses">₹0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-gallery-wrap">
+        <h3>Visual Progress Gallery</h3>
+        <div id="dashboard-gallery" class="photo-gallery"></div>
+      </div>
+
+      <div class="dashboard-content-grid">
+        <div class="content-box">
+          <h3>Recent Payments</h3>
+          <ul id="recent-payments" class="modern-list"></ul>
+        </div>
+        <div class="content-box">
+          <h3>Recent Expenses</h3>
+          <ul id="recent-expenses" class="modern-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donors -->
+    <section id="donors" class="section">
+      <div class="section-header">
+        <h2>Donors List</h2>
+        <button class="btn btn-primary admin-only hidden-admin" id="add-donor-btn">+ Add Donor</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Total Donated</th>
+              <th class="admin-only hidden-admin">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="donors-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Payments -->
+    <section id="payments" class="section">
+      <div class="section-header">
+        <h2>Payments Received</h2>
+        <button class="btn btn-primary admin-only hidden-admin" id="add-payment-btn">+ Add Payment</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Donor</th>
+              <th>Amount (₹)</th>
+              <th>Mode</th>
+              <th>Purpose</th>
+              <th class="admin-only hidden-admin">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="payments-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Expenses -->
+    <section id="expenses" class="section">
+      <div class="section-header">
+        <h2>Expenses</h2>
+        <button class="btn btn-primary admin-only hidden-admin" id="add-expense-btn">+ Add Expense</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Amount (₹)</th>
+              <th>Description</th>
+              <th class="admin-only hidden-admin">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="expenses-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Temples -->
+    <section id="temples" class="section">
+      <div class="section-header">
+        <h2>Temples</h2>
+        <button class="btn btn-primary admin-only hidden-admin" id="add-temple-btn">+ Add Temple</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th class="admin-only hidden-admin">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="temples-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Construction Updates -->
+    <section id="construction" class="section">
+      <div class="section-header">
+        <h2>Construction Updates</h2>
+        <button class="btn btn-primary admin-only hidden-admin" id="add-construction-btn">+ Add Update</button>
+      </div>
+      <div class="construction-grid" id="construction-list"></div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Form</h3>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Donor form -->
+        <form id="form-donor" class="form hidden">
+          <input type="hidden" id="donor-id">
+          <label>Name *</label>
+          <input type="text" id="donor-name" required>
+          <label>Phone</label>
+          <input type="tel" id="donor-phone">
+          <label>Email</label>
+          <input type="email" id="donor-email">
+          <label>Address</label>
+          <textarea id="donor-address" rows="2"></textarea>
+          <button type="submit" class="btn btn-primary">Save Donor</button>
+        </form>
+        <!-- Temple form -->
+        <form id="form-temple" class="form hidden">
+          <input type="hidden" id="temple-id">
+          <label>Temple Name *</label>
+          <input type="text" id="temple-name" required>
+          <label>Location</label>
+          <input type="text" id="temple-location">
+          <label>Description</label>
+          <textarea id="temple-description" rows="2"></textarea>
+          <button type="submit" class="btn btn-primary">Save Temple</button>
+        </form>
+        <!-- Payment form -->
+        <form id="form-payment" class="form hidden">
+          <input type="hidden" id="payment-id">
+          <label>Date *</label>
+          <input type="date" id="payment-date" required>
+          <label>Donor *</label>
+          <select id="payment-donor" required></select>
+          <label>Amount (₹) *</label>
+          <input type="number" id="payment-amount" min="1" step="0.01" required>
+          <label>Mode</label>
+          <select id="payment-mode">
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Cheque">Cheque</option>
+          </select>
+          <label>Purpose</label>
+          <input type="text" id="payment-purpose" placeholder="e.g. Donation, Construction">
+          <button type="submit" class="btn btn-primary">Save Payment</button>
+        </form>
+        <!-- Expense form -->
+        <form id="form-expense" class="form hidden">
+          <input type="hidden" id="expense-id">
+          <label>Date *</label>
+          <input type="date" id="expense-date" required>
+          <label>Category *</label>
+          <select id="expense-category">
+            <option value="Construction">Construction</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Pooja Materials">Pooja Materials</option>
+            <option value="Staff">Staff</option>
+            <option value="Other">Other</option>
+          </select>
+          <label>Amount (₹) *</label>
+          <input type="number" id="expense-amount" min="1" step="0.01" required>
+          <label>Description</label>
+          <textarea id="expense-desc" rows="2"></textarea>
+          <button type="submit" class="btn btn-primary">Save Expense</button>
+        </form>
+        <!-- Construction update form -->
+        <form id="form-construction" class="form hidden">
+          <input type="hidden" id="construction-id">
+          <label>Title *</label>
+          <input type="text" id="construction-title" required placeholder="e.g. Main Gopuram Foundation">
+          <label>Date *</label>
+          <input type="date" id="construction-date" required>
+          <label>Temple / Project *</label>
+          <select id="construction-temple" required></select>
+          <label>Status</label>
+          <select id="construction-status">
+            <option value="Planned">Planned</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="On Hold">On Hold</option>
+          </select>
+          <label>Progress %</label>
+          <input type="number" id="construction-progress" min="0" max="100" value="0">
+          <label>Photos</label>
+          <input type="file" id="construction-photos" accept="image/*" multiple>
+          <div id="construction-photos-preview" class="photo-preview-grid"></div>
+          <label>Details</label>
+          <textarea id="construction-details" rows="4" placeholder="Describe the update..."></textarea>
+          <button type="submit" class="btn btn-primary">Save Update</button>
+        </form>
+        <!-- Login Form -->
+        <form id="form-login" class="form hidden">
+          <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="login-password" placeholder="Enter password " required>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Mahidhara Temple Trust &middot; Data stored locally in your browser</p>
+  </footer>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/temples.js"></script>
+  <script src="js/donors.js"></script>
+  <script src="js/payments.js"></script>
+  <script src="js/expenses.js"></script>
+  <script src="js/construction.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

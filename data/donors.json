@@ -1,0 +1,16 @@
+[
+  {
+    "id": "d1",
+    "name": "Sri Rama Kumar",
+    "phone": "9876543210",
+    "email": "rama@example.com",
+    "address": "Near Bus Stand, Main Road"
+  },
+  {
+    "id": "d2",
+    "name": "Lakshmi Devi",
+    "phone": "9123456789",
+    "email": "lakshmi@example.com",
+    "address": "Temple Street, Ward 5"
+  }
+]

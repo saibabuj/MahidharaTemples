@@ -1,0 +1,72 @@
+{
+  "donors": [
+    {
+      "id": "d1",
+      "name": "Sri Rama Kumar",
+      "phone": "9876543210",
+      "email": "rama@example.com",
+      "address": "Near Bus Stand, Main Road"
+    },
+    {
+      "id": "d2",
+      "name": "Lakshmi Devi",
+      "phone": "9123456789",
+      "email": "lakshmi@example.com",
+      "address": "Temple Street, Ward 5"
+    }
+  ],
+  "payments": [
+    {
+      "id": "p1",
+      "date": "2025-01-15",
+      "donorId": "d1",
+      "amount": 25000,
+      "mode": "UPI",
+      "purpose": "Construction donation"
+    },
+    {
+      "id": "p2",
+      "date": "2025-01-20",
+      "donorId": "d2",
+      "amount": 10000,
+      "mode": "Cash",
+      "purpose": "General donation"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "e1",
+      "date": "2025-01-18",
+      "category": "Construction",
+      "amount": 15000,
+      "description": "Cement and sand for foundation"
+    },
+    {
+      "id": "e2",
+      "date": "2025-01-22",
+      "category": "Pooja Materials",
+      "amount": 2500,
+      "description": "Flowers and incense"
+    }
+  ],
+  "construction": [
+    {
+      "id": "c1",
+      "title": "Main Gopuram Foundation",
+      "date": "2025-01-10",
+      "temple": "Sri Mahidhara Temple",
+      "status": "In Progress",
+      "progress": 35,
+      "details": "Foundation work completed. Pillars being erected."
+    },
+    {
+      "id": "c2",
+      "title": "Compound Wall",
+      "date": "2025-01-25",
+      "temple": "Sri Mahidhara Temple",
+      "status": "Completed",
+      "progress": 100,
+      "details": "North and east compound walls completed."
+    }
+  ]
+}
